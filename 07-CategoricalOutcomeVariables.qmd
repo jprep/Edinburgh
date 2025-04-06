@@ -1,0 +1,6 @@
+---
+title: "CategoricalOutcomeVariables"
+author: "JP"
+format: html
+editor: visual
+---

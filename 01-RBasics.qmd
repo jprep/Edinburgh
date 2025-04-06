@@ -1,0 +1,6 @@
+---
+title: "R Basics"
+author: "JP"
+format: html
+editor: visual
+---

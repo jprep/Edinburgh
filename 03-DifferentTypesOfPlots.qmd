@@ -1,0 +1,6 @@
+---
+title: "Different Types of Plots"
+author: "JP"
+format: html
+editor: visual
+---

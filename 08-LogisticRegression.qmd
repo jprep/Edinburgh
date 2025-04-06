@@ -1,0 +1,6 @@
+---
+title: "LogisticRegression"
+author: "JP"
+format: html
+editor: visual
+---
