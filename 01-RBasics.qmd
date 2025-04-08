@@ -4,3 +4,117 @@ author: "JP"
 format: html
 editor: visual
 ---
+
+```{r}
+#| label: Reading Data
+#| message: false
+#| warning: false
+#| paged-print: true
+
+library(tidyverse)
+
+example_data <- read_csv('data/example_data.csv')
+#View(example_data)
+example_data
+
+library(tidyverse)
+gbd_short <- read_csv("data/global_burden_disease_cause-year.csv")
+gbd_short
+
+
+```
+
+```{r}
+#| label: Variable Types
+#| message: false
+#| warning: false
+#| paged-print: true
+
+
+library(tidyverse)
+
+data_types <- read_csv('data/typesdata.csv')
+data_types
+
+
+data_types_faulty <- read_csv('data/typesdata_faulty.csv')
+data_types_faulty
+
+
+# Numeric variables (continuous)
+
+measurement_mean <- data_types$measurement %>% mean()
+measurement_mean
+
+measurement_mean == 3.333333
+
+0.10 + 0.05 == 0.15
+
+near(0.10 + 0.05, 0.15)
+
+near(measurement_mean, 3.333333)
+near(measurement_mean, 3.333333, 0.000001)
+
+
+# Character variables
+
+data_types %>% count(group)
+data_types %>% count(group, sort = TRUE)
+
+# all ids are unique:
+data_types %>% count(id, sort = TRUE)
+
+data_types %>% 
+  add_row(id = 'ID3') %>% 
+  count(id, sort = TRUE)
+
+
+# Date/time variables
+
+library(lubridate)
+current_datetime <- Sys.time()
+current_datetime
+
+my_datetime <- "2025-04-09 12:17"
+my_datetime
+
+current_datetime %>% class()
+my_datetime %>% class()
+
+my_datetime_converted <- ymd_hm(my_datetime)
+my_datetime_converted
+
+my_datetime_converted - current_datetime
+
+my_datesdiff <- my_datetime_converted - current_datetime
+my_datesdiff %>% class()
+
+ymd_hm("2021-01-02 12:00") + my_datesdiff
+560/as.numeric(my_datesdiff)
+
+parse_date_time("12:34 07/Jan'20", "%H:%M %d/%b'%y")
+
+Sys.time()
+
+Sys.time() %>% format("Happy days, the current time is %H:%M %B-%d (%Y)!")
+```
+
+```{r}
+#| label: Objects and functions
+#| message: false
+#| warning: false
+#| paged-print: true
+
+
+library(tidyverse)
+
+mydata <- tibble(
+  id   = 1:4,
+  sex  = c("Male", "Female", "Female", "Male"),
+  var1 = c(4, 1, 2, 3),
+  var2 = c(NA, 4, 5, NA),
+  var3 = c(2, 1, NA, NA)
+)
+
+mydata
+```
